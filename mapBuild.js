@@ -50,7 +50,6 @@ let positions = [55, 106, 123, 58, 44, 110, 114, 47]
 
 
 
-
 let layout = [];
 
 function makeMap() {
