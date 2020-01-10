@@ -7,58 +7,49 @@ const uralStart = 19;
 const uralSide = 4;
 const uralColor = 'red';
 const uralName = ['U', 'R', 'A', 'L'];
-let ural = ['ural', 40];
+let ural = [' URAL', 40];
 const lumeStart = 70;
 const lumeSide = 4;
 const lumeColor = 'purple';
 const lumeName = ['L', 'U', 'M', 'E'];
-let lume = ['lume', 91];
+let lume = [' LUME', 91];
 const lyonStart = 121;
 const lyonSide = 4;
 const lyonColor = 'pink';
 const lyonName = ['L', 'Y', 'O', 'N'];
-let lyon = ['lyon', 125];
+let lyon = [' LYON', 125];
 const skyStart = 41;
 const skySide = 2;
 const skyColor = 'green';
-let sky = ['sky'];
+let sky = [' SKY'];
 const forkStart = 43;
 const forkSide = 3;
 const forkColor = 'yellow';
 const forkName = ['F', 'O', 'R', 'K'];
-let fork = ['fork', 75, 76];
+let fork = [' FORK', 75, 76];
 const vollStart = 92;
 const vollSide = 4;
 const vollName = ['V', 'O', 'L', 'L'];
 const vollColor = 'orange';
-let voll = ['voll'];
+let voll = [' VOLL'];
 const groutStart = 96;
 const groutSide = 3;
 const groutColor = 'grey';
 const groutName = ['G', 'R', 'O', 'U', 'T'];
-let grout = ['grout', 133, 134, 150, 151, 147, 148, 149];
+let grout = [' GROUT', 133, 134, 150, 151, 147, 148, 149];
 const isleStart = 47;
 const isleSide = 1;
 const isleColor = 'brown';
-let isle = ["isle", 46];
+let isle = [" ISLE", 46];
 let allTerritories = [ural, lume, lyon, sky, fork, grout, voll, isle];
-let allTerritoryNames = [" ural", " lume", " lyon"," sky"," fork"," grout"," voll","isle"]
-let init = false;
+let allTerritoryNames = [" URAL", " LUME", " LYON"," SKY"," FORK"," GROUT"," VOLL"," ISLE"];
+let whereToPlaceImages = [[" URAL", 55], [" LUME", 106], [" LYON", 123], [" SKY", 58], [" FORK", 44], [" VOLL", 110], [" GROUT", 114], [" ISLE", 47]];
+let positions = [55, 106, 123, 58, 44, 110, 114, 47]
 
-const p1Sprite = document.createElement('img');
-const p2Sprite = document.createElement('img');
-const nSprite = document.createElement('img');
-p1Sprite.src = '/imgs/soldier2.png';
-p1Sprite.style.width = '50px';
-p1Sprite.style.height = '50px';
-p2Sprite.src = '/imgs/soldier1.png';
-p2Sprite.style.width = '50px';
-p2Sprite.style.height = '50px';
-nSprite.src = '/imgs/duck.png';
-nSprite.style.width = '50px';
-nSprite.style.height = '50px';
 
-let sprites = [p1Sprite, p2Sprite];
+
+
+
 
 let layout = [];
 
@@ -68,12 +59,10 @@ function makeMap() {
   newCountry.className = `country ${i}`;
   mapDiv.appendChild(newCountry);
   let countryLabel = document.createElement('p');
-  //   countryLabel.innerText = i;
+    // countryLabel.innerText = i;
   newCountry.appendChild(countryLabel);
  }
- divs[55].appendChild(p2Sprite);
- divs[56].appendChild(p1Sprite);
- divs[54].appendChild(nSprite);
+
 
  mapDiv.style.display = 'grid';
  var rowsString = '';
@@ -118,8 +107,8 @@ function makeMap() {
   }
  }
  for (let i = lyonStart; i < lyonSide + lyonStart; i++) {
-  divs[i].lastChild.style.textAlign = 'center';
-  divs[i].lastChild.innerText = lyonName[i - lyonStart];
+//   divs[i].lastChild.style.textAlign = 'center';
+//   divs[i].lastChild.innerText = lyonName[i - lyonStart];
 
   divs[i].style.backgroundColor = lyonColor;
   lyon.push(i);
@@ -174,8 +163,8 @@ function makeMap() {
    grout.push(i + j * y);
   }
  }
- divs[47].lastChild.style.textAlign = 'CENTER';
- divs[47].lastChild.innerText = 'ISLE';
+//  divs[47].lastChild.style.textAlign = 'CENTER';
+//  divs[47].lastChild.innerText = 'ISLE';
  for (let i = isleStart; i < isleSide + isleStart; i++) {
   divs[i].style.backgroundColor = isleColor;
   isle.push(i);
@@ -239,12 +228,12 @@ function isAdjacentTo(arr1, arr2) {
  return is;
 }
 
-let test = [];
-let arr = [1, 2, 3];
-let c = [...arr];
-
-for (let i = 0; i < 2; i++) {
- var g = randomInt(0, c.length - 1);
- test.push(arr[g]);
- c.splice(g, 1);
+function getRid() {
+    const butDiv = document.querySelector('.button-delete');
+    var child = butDiv.lastChild;
+    while (child) {
+        butDiv.removeChild(child);
+        child = butDiv.lastChild
+    }
 }
+
