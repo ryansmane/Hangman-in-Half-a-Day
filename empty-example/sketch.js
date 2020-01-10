@@ -194,7 +194,8 @@ function draw() {
    seconds > -1 &&
    rightAnswers != wordLength - spaceIndices.length
   ) {
-   frameRate(1);4
+   frameRate(1);
+   4;
    text(seconds, 1200, 625, 100);
 
    seconds--;

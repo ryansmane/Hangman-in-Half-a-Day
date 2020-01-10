@@ -1,17 +1,16 @@
 .cont {
-    display: flex;
-
+ display: flex;
 }
 
 .setup-info {
-    text-align: center;
-    width: 625px;
+ text-align: center;
+ width: 625px;
 }
- #hangman {
-padding-bottom: 0px;
-margin-top: 0px;
- }
- .letter-blanks {
-     padding: 0px;
-     margin: 0px;
- }
+#hangman {
+ padding-bottom: 0px;
+ margin-top: 0px;
+}
+.letter-blanks {
+ padding: 0px;
+ margin: 0px;
+}
