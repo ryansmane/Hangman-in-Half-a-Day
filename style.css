@@ -9,4 +9,10 @@
 }
  #hangman {
 padding-top: 500px;
+padding-bottom: 0px;
+margin-top: 0px;
+ }
+ .letter-blanks {
+     padding: 0px;
+     margin: 0px;
  }

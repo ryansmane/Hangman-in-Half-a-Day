@@ -2,9 +2,14 @@
 let input;
 let inputButton;
 let word;
+let wordLength;
 let letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 let width = 1300;
-let height = 750;
+let height = 680;
+let linesX = 40;
+let linesY = 600;
+let linesLength = 40;
+let letterBlanks = document.querySelector('.letter-blanks');
 
 
 function setup() {
@@ -13,6 +18,9 @@ function setup() {
   background(0);
   var x = 0;
   var y = 0;
+  var wrongX = 750;
+  var wrongY = 300;
+  
   
   strokeWeight(3);
   stroke(100);
@@ -30,16 +38,24 @@ function setup() {
     button.elt.style.fontSize = "20px";
     button.elt.style.width = "65px";
     button.elt.style.height = "65px";
-    button.mousePressed(returnLetter)
+    button.parent("buttons")
     square(x, y, 100)
     x+=100;
   }
-
+  
+  for (let i = 0; i < 5; i++) {
+    square(wrongX, wrongY, 100)
+    wrongX+=100;
+  }
+  
+ 
+  const buttonDiv = document.querySelector('#buttons');
+  buttonDiv.addEventListener('click', getLetter);
   
   
   input = createInput();
   inputButton = createButton("Enter Word");
-  inputButton.position(190, 1263);
+  inputButton.position(190, 1193);
   inputButton.mousePressed(getWord)
   input.parent('inputs');
   inputButton.parent('inputs');
@@ -51,8 +67,8 @@ function setup() {
   var bodyStroke = 0
   strokeWeight(bodyStroke);
   var body = line(400, 370, 400, 500)
-  var leftArmStroke = 0
-  strokeWeight(leftArmStroke);
+  // var leftArmStroke = 0
+  // strokeWeight(leftArmStroke);
   var leftArm = line(400, 435, 475, 370)
   var rightArmStroke = 0
   strokeWeight(rightArmStroke);
@@ -63,24 +79,46 @@ function setup() {
   var leftLegStroke = 0
   strokeWeight(leftLegStroke);
   var leftLeg = line(400, 500, 475, 550)
+  
+  
 
 }
-
 function getWord() {
-word = input.value();
-var e = document.getElementById('inputs')
-var child = e.lastElementChild;
-while(child) {
-  e.removeChild(child);
-  child = e.lastElementChild
-}
+  word = input.value();
+  wordLength = word.length;
+  var e = document.getElementById('inputs')
+  var child = e.lastElementChild;
+  while (child) {
+    e.removeChild(child);
+    child = e.lastElementChild
+  }
+  let newBar = document.createElement('div');
+  newBar.style.backgroundColor = "black";
+  newBar.innerText = "HELLO";
+  newBar.style.color = "white";
+  letterBlanks.appendChild(newBar);
 }
 
-function returnLetter(evt) {
-  console.log(evt.target)
+
+
+
+function getLetter(evt) {
+  console.log(evt.target.innerText);
 } 
 
 
+
 function draw() {
+  strokeWeight(3);
+  stroke(100);
+  textSize(40);
+  var linesTotal = (wordLength*100)/2
+  if (wordLength % 2 === 1) {
+    linesTotal += 100
+  }
+  if (linesX < linesTotal) {
+  line(linesX, linesY, linesX+linesLength, linesY)
+  linesX += 50; }
+//FIGURE OUT THIS LOGIC, NEED TO SEE HOW MATH WORKS OUT
   
 }
