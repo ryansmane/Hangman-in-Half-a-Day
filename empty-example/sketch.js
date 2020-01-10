@@ -55,9 +55,9 @@ let numberOfActualLetters = 0;
 let mover = -1;
 var explodeX1 = 650;
 var explodeY1 = 550;
-var explodeX2 = 65;
+var explodeX2 = 650;
 var explodeX3 = 650;
-var explodeY2 = 5500;
+var explodeY2 = 550;
 var explodeY3 = 550;
 var explodeX4 = 650;
 var explodeY4 = 550;
@@ -271,7 +271,7 @@ function draw() {
    circle(explodeX4, explodeY4, diam);
 
    fill(255);
-   text('YOU WIN!', 500, 500);
+   text('YOU WIN!', width / 2, height / 2);
   }
  }
 }
